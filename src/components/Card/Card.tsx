@@ -10,7 +10,7 @@ const Cards = ({ url, name }: Props) => {
   return (
     <Card
       hoverable
-      style={{ width: 240 }}
+      style={{ width: 150 }}
       cover={<img alt="example" src={url} />}
       onClick={(e) => console.log("onClick", e)}
     >
