@@ -6,4 +6,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   envPrefix: "REACT_APP_",
   plugins: [tsconfigPaths(), react()],
+  base: "/pokemon",
+  build: {
+    outDir: "build",
+    emptyOutDir: true,
+  },
 });
