@@ -1,3 +1,4 @@
+import CustomImage from "@/components/Image";
 import { useGetPokemonByID } from "@/service/pokemon-api";
 import { Col, Row } from "antd";
 import Table, { ColumnsType } from "antd/es/table";
@@ -95,7 +96,9 @@ const Detail = () => {
 
   return (
     <div>
-      <img src={url} style={{ height: "200px", width: "auto" }} />
+      <div style={{ height: "200px", width: "auto" }}>
+        <CustomImage src={url} />
+      </div>
       <h1> {pokemonDetail?.data?.name}</h1>
       <Row gutter={[12, 12]} justify={"center"} style={{ marginTop: "50px" }}>
         <Col>
