@@ -19,11 +19,7 @@ const Cards = ({ item }: Props) => {
       key={item.id}
       hoverable
       style={{ width: 150 }}
-      cover={
-        <div style={{ height: "200px", width: "auto" }}>
-          <CustomImage src={item.url} />
-        </div>
-      }
+      cover={<CustomImage src={item.url} />}
       onClick={() => handleCardClick(item?.id)}
     >
       <Meta title={item?.name} />
