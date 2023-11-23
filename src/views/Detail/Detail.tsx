@@ -1,6 +1,5 @@
 import { useGetPokemonByID } from "@/service/pokemon-api";
 import { Col, Row } from "antd";
-import React from "react";
 import { useLocation } from "react-router-dom";
 
 const Detail = () => {
