@@ -1,10 +1,10 @@
 import "./App.css";
-import Home from "./view/home";
+// import Home from "./views/Home/Home";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-import Layout from "./components/Layouts";
-
+import DefaultLayout from "@/Layouts";
+import { routers } from "@/routes/router";
+import { HashRouter, useRoutes } from "react-router-dom";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -14,15 +14,23 @@ const queryClient = new QueryClient({
   },
 });
 
-function App() {
+const App = () => {
+  // const routes = useRoutes(routers);
+  const routes = useRoutes(routers);
+  return routes;
+};
+
+function AppWrapper() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Layout>
-        <Home />
-      </Layout>
+      <DefaultLayout>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </DefaultLayout>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
 
-export default App;
+export default AppWrapper;

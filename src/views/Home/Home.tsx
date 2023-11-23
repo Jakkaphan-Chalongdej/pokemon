@@ -1,6 +1,6 @@
 import Cards from "@/components/Card";
 import { useGetPokemon } from "@/service/pokemon-api";
-import { Col, Pagination, Row, Spin } from "antd";
+import { Col, Pagination, Row } from "antd";
 import { useEffect, useState } from "react";
 import PokemonLogo from "@/assets/logo/pokemon-logo-png-1428.png";
 
@@ -23,7 +23,7 @@ const Home = () => {
     const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
     return (
       <Col key={id}>
-        <Cards key={id} url={url} name={item.name} />
+        <Cards item={{ ...item, url, id }} />
       </Col>
     );
   });
@@ -32,11 +32,11 @@ const Home = () => {
     <div>
       <img src={PokemonLogo} style={{ height: "100px", width: "auto" }} />
       <Row gutter={[12, 12]} justify={"center"} style={{ marginTop: "50px" }}>
-        <Col span={24}>
+        <Col>
           <Row>
             <Col span={12} offset={6}>
               <Row gutter={[6, 6]} justify={"center"}>
-                {pokemon.isLoading ? <Spin tip="Loading..." /> : newPokemonList}
+                {newPokemonList}
               </Row>
             </Col>
           </Row>
